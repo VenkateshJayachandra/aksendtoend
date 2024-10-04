@@ -31,5 +31,6 @@ runs:
     - name: Check Azure CLI version
       shell: bash
       run: |
+          curl -L https://aka.ms/InstallAzureCli | bash
           az --version
 
