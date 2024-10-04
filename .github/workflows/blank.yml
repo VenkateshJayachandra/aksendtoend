@@ -30,3 +30,7 @@ jobs:
 
       - name: Check Azure CLI version
         run: az --version
+      
+      - name: List federated identity permissions
+        run: |
+          az ad app permission list --id <your-app-id>
