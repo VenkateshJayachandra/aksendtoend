@@ -29,7 +29,8 @@ runs:
         
     - name: Install Azure CLI
       shell: bash
-      run: curl -sL https://aka.ms/InstallAzureCLIDeb |  bash
+      run: | 
+        az upgarde
 
     - name: Check Azure CLI version
       shell: bash
