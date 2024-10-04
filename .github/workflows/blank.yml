@@ -23,12 +23,7 @@ jobs:
       id-token: write
       contents: read
       pull-requests: write
-    env:
-      ARM_CLIENT_ID: 'd3278a10-654b-427e-b39e-42e6d7dd0c42'
-      ARM_SUBSCRIPTION_ID: '7bf5180b-751c-4811-878e-ba5671790872'
-      ARM_TENANT_ID: '8bc3bb99-ff6d-42ef-9b17-1ea52c4db4ed'
-      ARM_USE_AZUREAD: true
-      ARM_USE_OIDC: true
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -40,10 +35,19 @@ jobs:
       - name: Check Azure CLI version
         run: az --version
       
-      
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          auth-type: IDENTITY
+          tenant-id: '8bc3bb99-ff6d-42ef-9b17-1ea52c4db4ed'
+          subscription-id: '7bf5180b-751c-4811-878e-ba5671790872'
+          enable-AzPSSession: true
 
-      - name: 'Run az commands'
-        run: |
-            az account show
-            az ad app permission list --id d3278a10-654b-427e-b39e-42e6d7dd0c42
+      - name: Azure CLI script
+        uses: azure/cli@v2
+        with:
+            azcliversion: latest
+            inlineScript: |
+              az account show
+              # You can write your Azure CLI inline scripts here.
             
