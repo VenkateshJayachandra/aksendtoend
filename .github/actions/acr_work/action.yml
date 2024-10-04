@@ -12,8 +12,13 @@ runs:
         
         docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 
-        docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
+        cd /home/docker/actions-runner/_work/endtoendpractice/endtoendpractice
 
-        docker push iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1
+        ls -l /home/docker/actions-runner/_work/endtoendpractice/endtoendpractice/Dockerfile
+
+ 
+        # docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
+
+        # docker push iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1
 
 
