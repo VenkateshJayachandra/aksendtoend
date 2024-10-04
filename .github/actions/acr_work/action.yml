@@ -7,7 +7,8 @@ runs:
   steps:
     - name: Log in to Azure Container Registry
       shell: bash
-      run:  |
-          dockerd
+      run: |
+        TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
+        docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 
-        #  az acr login --name iaggbsacrcorecrtestuksouth01
+        
