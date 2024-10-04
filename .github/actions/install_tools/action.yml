@@ -22,10 +22,10 @@ runs:
       shell: bash
       run: docker --version
 
-    - name: Install Azure CLI
-      shell: bash
-      run: |
-        az upgrade
+    # - name: Install Azure CLI
+    #   shell: bash
+    #   run: |
+    #     az upgrade
 
     # - name: Install Azure CLI via Docker
     #   shell: bash
