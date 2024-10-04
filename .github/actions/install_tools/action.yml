@@ -23,14 +23,11 @@ runs:
       shell: bash
       run: docker --version
       
-    # - name: Install sudo
-    #   shell: bash
-    #   run: apt-get update && apt-get install -y sudo
         
-    - name: Install Azure CLI
-      shell: bash
-      run: | 
-        az upgarde
+    # - name: Install Azure CLI
+    #   shell: bash
+    #   run: | 
+    #     az upgarde
 
     - name: Check Azure CLI version
       shell: bash
