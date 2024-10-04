@@ -35,7 +35,6 @@ jobs:
 
       - name: Check Azure CLI version
         run: |
-          az upgrade  
           az --version
       
       - name: Azure Login
@@ -61,9 +60,9 @@ jobs:
       - name: Check Docker version
         run: docker --version
 
+
       - name: Check Azure CLI version
         run: |
-          az upgrade  
           az --version
       
       - name: Azure Login
