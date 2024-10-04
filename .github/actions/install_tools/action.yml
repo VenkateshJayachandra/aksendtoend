@@ -23,13 +23,13 @@ runs:
       shell: bash
       run: docker --version
       
-    - name: Install sudo
-      shell: bash
-      run: apt-get update && apt-get install -y sudo
+    # - name: Install sudo
+    #   shell: bash
+    #   run: apt-get update && apt-get install -y sudo
         
     - name: Install Azure CLI
       shell: bash
-      run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      run: curl -sL https://aka.ms/InstallAzureCLIDeb |  bash
 
     - name: Check Azure CLI version
       shell: bash
