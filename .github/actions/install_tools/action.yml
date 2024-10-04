@@ -22,7 +22,6 @@ runs:
     - name: Check Docker version
       shell: bash
       run: docker --version
-      
         
     # - name: Install Azure CLI
     #   shell: bash
