@@ -8,4 +8,9 @@ runs:
     - name: Log in to Azure Container Registry
       shell: bash
       run:  |
-         az acr login --name iaggbsacrcorecrtestuksouth01
+          systemctl status docker
+          systemctl start docker
+          systemctl enable docker
+          systemctl daemon-reload
+
+        #  az acr login --name iaggbsacrcorecrtestuksouth01
