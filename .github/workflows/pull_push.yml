@@ -24,30 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.9.5
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 1.23.0
-          cache: false
-      - name: Check Docker version
-        run: docker --version
-
-      - name: Install Azure CLI
-        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
-      - name: Check Azure CLI version
-        run: |
-         
-          az --version
-      
+      - name: Install Tooling
+        uses: ./.github/actions/install_tools
       - name: Azure Login
         uses: azure/login@v1
         with:
@@ -67,29 +45,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.9.5
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 1.23.0
-          cache: false
-      - name: Check Docker version
-        run: docker --version
-      
-      - name: Install Azure CLI
-        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-        
-      - name: Check Azure CLI version
-        run: |
-          az --version
-      
+      - name: Install Tooling
+        uses: ./.github/actions/install_tools
       - name: Azure Login
         uses: azure/login@v1
         with:
