@@ -38,16 +38,8 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          auth-type: IDENTITY
+          client-id: '63960e1a-7e3d-46f9-81e3-380566ef1c35'
           tenant-id: '8bc3bb99-ff6d-42ef-9b17-1ea52c4db4ed'
           subscription-id: '7bf5180b-751c-4811-878e-ba5671790872'
-          enable-AzPSSession: true
-
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-            azcliversion: latest
-            inlineScript: |
-              az account show
-              # You can write your Azure CLI inline scripts here.
+          
             
