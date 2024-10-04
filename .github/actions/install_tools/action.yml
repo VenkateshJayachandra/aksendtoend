@@ -2,35 +2,37 @@
 name: "Install_tools"
 description: "Install required packages for the job"
 
-
 runs:
   using: composite
   steps:
     - name: Install Node
       uses: actions/setup-node@v4
       with:
-          node-version: 20
+        node-version: 20
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v3
       with:
-          terraform_version: 1.9.5
+        terraform_version: 1.9.5
     - name: Install Go
       uses: actions/setup-go@v5
       with:
-          go-version: 1.23.0
-          cache: false
+        go-version: 1.23.0
+        cache: false
     - name: Check Docker version
       shell: bash
       run: docker --version
-        
-    # - name: Install Azure CLI
-    #   shell: bash
-    #   run: | 
-    #     az upgarde
+
+    - name: Install Azure CLI
+      shell: bash
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+    - name: Install Azure CLI via Docker
+      shell: bash
+      run: |
+        docker run -it mcr.microsoft.com/azure-cli:cbl-mariner2.0
 
     - name: Check Azure CLI version
       shell: bash
       run: |
-          curl -L https://aka.ms/InstallAzureCli | bash
-          az --version
-
+        az --version
