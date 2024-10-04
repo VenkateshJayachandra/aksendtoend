@@ -42,9 +42,11 @@ jobs:
       - name: Check Docker version
         run: docker --version
 
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
       - name: Check Azure CLI version
         run: |
-          az upgrade
           az --version
       
       - name: Azure Login
@@ -70,9 +72,11 @@ jobs:
       - name: Check Docker version
         run: docker --version
 
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
       - name: Check Azure CLI version
         run: |
-          az upgrade
           az --version
       
       - name: Azure Login
