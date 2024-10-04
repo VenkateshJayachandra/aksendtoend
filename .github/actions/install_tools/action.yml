@@ -22,15 +22,15 @@ runs:
       shell: bash
       run: docker --version
 
-    # - name: Install Azure CLI
-    #   shell: bash
-    #   run: |
-    #     curl -sL https://aka.ms/InstallAzureCLIDeb | bash
-
-    - name: Install Azure CLI via Docker
+    - name: Install Azure CLI
       shell: bash
       run: |
-        docker run -it mcr.microsoft.com/azure-cli:cbl-mariner2.0
+        az upgrade
+
+    # - name: Install Azure CLI via Docker
+    #   shell: bash
+    #   run: |
+    #     docker run -it mcr.microsoft.com/azure-cli:cbl-mariner2.0
 
     - name: Check Azure CLI version
       shell: bash
