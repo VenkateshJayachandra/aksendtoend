@@ -36,7 +36,7 @@ jobs:
         run: az --version
       
       - name: Azure Login
-        uses: azure/login@v1
+        uses: azure/login@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0
         with:
           client-id: 'bafe0fa4-c783-48a6-b6e6-d77ac78a5b63'
           tenant-id: '8bc3bb99-ff6d-42ef-9b17-1ea52c4db4ed'
