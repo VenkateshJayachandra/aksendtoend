@@ -11,9 +11,9 @@ runs:
       run: |
         TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
         
-        az acr build --registry iaggbsacrcorecrtestuksouth01 --image myApp:v1 --file ./Dockerfile .
+        docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 
-        # docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
+        az acr build --registry iaggbsacrcorecrtestuksouth01 --image myApp:v1 --file ./Dockerfile .
 
         # docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
 
