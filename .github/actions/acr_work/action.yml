@@ -12,7 +12,8 @@ runs:
       shell: bash
       run: |
        
-        docker run -v /var/run/docker.sock:/var/run/docker.sock -it docker /bin/bash
+        docker run -v /var/run/docker.sock:/var/run/docker.sock docker sh -c "docker ps"
+
 
 
 
