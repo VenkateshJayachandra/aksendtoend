@@ -15,9 +15,6 @@ runs:
 
         docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 
-        docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
-        
+        #docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
         # az acr build --registry iaggbsacrcorecrtestuksouth01 --image myApp:v1 --file ./Dockerfile .
-        
-        
         # docker push iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1
