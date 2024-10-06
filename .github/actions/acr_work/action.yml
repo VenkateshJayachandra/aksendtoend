@@ -14,11 +14,8 @@ runs:
         TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
 
         docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
-
-        docker pull iaggbsacrcorecrtestuksouth01.azurecr.io/self-hosted-runner-repo-linux-amd64:6.0
+        docker run -v /var/run/docker.sock:/var/run/docker.sock -ti docker pull iaggbsacrcorecrtestuksouth01.azurecr.io/self-hosted-runner-repo-linux-amd64:6.0
          
         # az acr build --registry iaggbsacrcorecrtestuksouth01 --image myApp:v1 --file ./Dockerfile .
-
-         docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
-
-         # docker push iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1
+        #  docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
+        # docker push iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1
