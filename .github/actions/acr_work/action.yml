@@ -1,7 +1,7 @@
 ---
 name: "acr_work"
 description: "ACR work"
-# hi ...
+
 runs:
   using: composite
   steps:
