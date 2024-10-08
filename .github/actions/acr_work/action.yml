@@ -12,7 +12,6 @@ runs:
       shell: bash
       run: |
         
-        
         TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
         docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
         docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
@@ -20,5 +19,26 @@ runs:
         
         # Use the below if you need to run the docker from the dedicated agent pool
         # az acr build --registry iaggbsacrcorecrtestuksouth01 --image myApp:v1 --file ./Dockerfile .
-        
+
+    # - name: Configure Azure OIDC
+    #     run: |
+    #       az role assignment list --assignee $(az account show --query user.name -o tsv)
+
+    #   - name: Get ACR token
+    #     id: get-acr-token
+    #     run: |
+    #       TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
+    #       echo "::set-output name=token::$TOKEN"
+
+    #   - name: Log in to ACR
+    #     run: |
+    #       echo "${{ steps.get-acr-token.outputs.token }}" | docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username ${{ secrets.AZURE_CLIENT_ID }} --password-stdin
+
+    #   - name: Build Docker image
+    #     run: |
+    #       docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
+
+    #   - name: Push Docker image
+    #     run: |
+    #       docker push iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1
         

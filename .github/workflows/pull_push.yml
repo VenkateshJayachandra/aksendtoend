@@ -54,28 +54,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          allow-no-subscriptions: true
-          
-      - name: Configure Azure OIDC
-        run: |
-          az role assignment list --assignee $(az account show --query user.name -o tsv)
-
-      - name: Get ACR token
-        id: get-acr-token
-        run: |
-          TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
-          echo "::set-output name=token::$TOKEN"
-
-      - name: Log in to ACR
-        run: |
-          echo "${{ steps.get-acr-token.outputs.token }}" | docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username ${{ secrets.AZURE_CLIENT_ID }} --password-stdin
-
-      - name: Build Docker image
-        run: |
-          docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
-
-      - name: Push Docker image
-        run: |
-          docker push iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1
+      - name: Acr Work
+        uses: ./.github/actions/acr_work
           
             
