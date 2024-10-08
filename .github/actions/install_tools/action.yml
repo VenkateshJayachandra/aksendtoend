@@ -11,8 +11,7 @@ runs:
         node-version: 20
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v3
-      with:
-        terraform_version: 1.9.5
+      
     - name: Install Go
       uses: actions/setup-go@v5
       with:
