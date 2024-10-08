@@ -15,9 +15,9 @@ runs:
         TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
         docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 
-        docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1 .
+        docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/imagePushedRunner:v1 .
 
-        docker push iaggbsacrcorecrtestuksouth01.azurecr.io/iaggbsacrcorecrtestuksouth01:v1
+        docker push iaggbsacrcorecrtestuksouth01.azurecr.io/imagePushedRunner:v1
      
 
         # Use the below if you need to run the docker from the dedicated agent pool
