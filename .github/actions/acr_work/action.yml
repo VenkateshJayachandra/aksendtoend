@@ -11,6 +11,8 @@ runs:
     - name: Log in to Azure Container Registry
       shell: bash
       run: |
+        
+        
         TOKEN=$(az acr login --name iaggbsacrcorecrtestuksouth01 --expose-token --output tsv --query accessToken)
         docker login iaggbsacrcorecrtestuksouth01.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
         docker build -t iaggbsacrcorecrtestuksouth01.azurecr.io/image_pushed_from_cicd_runner:v1 .
