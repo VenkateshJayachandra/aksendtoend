@@ -25,4 +25,5 @@ runs:
     - name: Check Azure CLI version
       shell: bash
       run: |
+        az upgrade
         az --version
